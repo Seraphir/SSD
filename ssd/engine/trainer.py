@@ -92,7 +92,6 @@ def do_train(cfg, model,
 
         batch_time = time.time() - end
         end = time.time()
-        logger.info("iteration:{} loss={}".format(iteration,loss))
         meters.update(time=batch_time)
         if iteration % args.log_step == 0:
             eta_seconds = meters.time.global_avg * (max_iter - iteration)
