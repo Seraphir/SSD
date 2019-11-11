@@ -26,7 +26,6 @@ class VOCDataset(torch.utils.data.Dataset):
         self.transform = transform
         self.target_transform = target_transform
         image_sets_file = os.path.join(self.data_dir, "ImageSets", "Main", "%s.txt" % self.split)
-        print("image_sets_file",image_sets_file)
         self.ids = VOCDataset._read_image_ids(image_sets_file)
         self.keep_difficult = keep_difficult
 
@@ -47,7 +46,6 @@ class VOCDataset(torch.utils.data.Dataset):
             boxes=boxes,
             labels=labels,
         )
-        print(image.shape)
         return image, targets, index
 
     def get_annotation(self, index):
