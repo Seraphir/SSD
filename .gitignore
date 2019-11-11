@@ -4,6 +4,7 @@ __pycache__
 *.so
 ext/build/
 ext/torch_extension.egg-info/
+
 # pytorch/python/numpy formats
 *.pth
 *.pkl
@@ -22,3 +23,11 @@ ext/torch_extension.egg-info/
 # Pycharm editor settings
 .idea
 .DS_Store
+
+# DataSets
+datasets/
+vgg16_reducedfc.pth
+VOCtrainval_06-Nov-2007.tar
+
+# Shell log
+shelllog

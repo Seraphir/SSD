@@ -52,6 +52,9 @@ class DatasetCatalog:
             "data_dir": "val2014",
             "ann_file": "annotations/instances_val2014.json"
         },
+        'custom': {
+            "data_dir": "PLANE"
+        },
     }
 
     @staticmethod
@@ -78,5 +81,12 @@ class DatasetCatalog:
                 ann_file=os.path.join(coco_root, attrs["ann_file"]),
             )
             return dict(factory="COCODataset", args=args)
+        elif "custom" in name:
+            custom_root = DatasetCatalog.DATA_DIR
+            attrs = DatasetCatalog.DATASETS[name]
+            args = dict(
+                data_dir=os.path.join(custom_root, attrs["data_dir"]),
+            )
+            return dict(factory="CustomDataset", args=args)
 
         raise RuntimeError("Dataset not available: {}".format(name))

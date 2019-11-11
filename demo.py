@@ -26,7 +26,8 @@ def run_demo(cfg, ckpt, score_threshold, images_dir, output_dir, dataset_type):
     else:
         raise NotImplementedError('Not implemented now.')
     device = torch.device(cfg.MODEL.DEVICE)
-
+    device = torch.device('cpu')
+    print("device:",device,type(device))
     model = build_detection_model(cfg)
     model = model.to(device)
     checkpointer = CheckPointer(model, save_dir=cfg.OUTPUT_DIR)

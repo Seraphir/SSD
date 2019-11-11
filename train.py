@@ -21,7 +21,8 @@ from ssd.utils.misc import str2bool
 def train(cfg, args):
     logger = logging.getLogger('SSD.trainer')
     model = build_detection_model(cfg)
-    device = torch.device(cfg.MODEL.DEVICE)
+    # device = torch.device(cfg.MODEL.DEVICE)
+    device = torch.device("cpu")
     model.to(device)
     if args.distributed:
         model = torch.nn.parallel.DistributedDataParallel(model, device_ids=[args.local_rank], output_device=args.local_rank)
@@ -103,6 +104,7 @@ def main():
     logger.info("Running with config:\n{}".format(cfg))
 
     model = train(cfg, args)
+    torch.save(model, 'model.pkl')
 
     if not args.skip_test:
         logger.info('Start evaluating...')

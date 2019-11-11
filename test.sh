@@ -1,0 +1,1 @@
+python3 train.py --config-file configs/vgg_ssd300_custom.yaml

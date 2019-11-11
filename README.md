@@ -110,7 +110,9 @@ Where `COCO_ROOT` default is `datasets` folder in current project, you can creat
 
 ```bash
 # for example, train SSD300:
-python train.py --config-file configs/vgg_ssd300_voc0712.yaml
+python3 train.py --config-file configs/vgg_ssd300_voc2007.yaml
+# use custom dataset
+python3 train.py --config-file configs/vgg_ssd300_custom.yaml
 ```
 ### Multi-GPU training
 
