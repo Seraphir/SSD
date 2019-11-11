@@ -25,9 +25,8 @@ ext/torch_extension.egg-info/
 .DS_Store
 
 # DataSets
-datasets/
-vgg16_reducedfc.pth
+/datasets
 VOCtrainval_06-Nov-2007.tar
 
 # Shell log
-shelllog
+shelllog/

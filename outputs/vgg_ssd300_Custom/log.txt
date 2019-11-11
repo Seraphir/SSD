@@ -517,3 +517,155 @@ TEST:
 2019-11-11 18:21:43,192 SSD.trainer INFO: iteration:6 loss=nan
 2019-11-11 18:23:17,274 SSD.trainer INFO: iteration:7 loss=nan
 2019-11-11 18:24:50,329 SSD.trainer INFO: iteration:8 loss=nan
+2019-11-11 18:35:38,705 SSD INFO: Using 1 GPUs
+2019-11-11 18:35:38,705 SSD INFO: Namespace(config_file='configs/vgg_ssd300_custom.yaml', distributed=False, eval_step=2500, local_rank=0, log_step=10, num_gpus=1, opts=[], save_step=2500, skip_test=False, use_tensorboard=True)
+2019-11-11 18:35:38,706 SSD INFO: Loaded configuration file configs/vgg_ssd300_custom.yaml
+2019-11-11 18:35:38,706 SSD INFO: 
+MODEL:
+  NUM_CLASSES: 2
+INPUT:
+  IMAGE_SIZE: 300
+DATASETS:
+  TRAIN: ("custom",)
+  TEST: ("custom",)
+SOLVER:
+  MAX_ITER: 120000
+  LR_STEPS: [80000, 100000]
+  GAMMA: 0.1
+  BATCH_SIZE: 32
+  LR: 1e-3
+
+OUTPUT_DIR: 'outputs/vgg_ssd300_Custom'
+2019-11-11 18:35:38,706 SSD INFO: Running with config:
+DATASETS:
+  TEST: ('custom',)
+  TRAIN: ('custom',)
+DATA_LOADER:
+  NUM_WORKERS: 8
+  PIN_MEMORY: True
+INPUT:
+  IMAGE_SIZE: 300
+  PIXEL_MEAN: [123, 117, 104]
+MODEL:
+  BACKBONE:
+    NAME: vgg
+    OUT_CHANNELS: (512, 1024, 512, 256, 256, 256)
+    PRETRAINED: True
+  BOX_HEAD:
+    NAME: SSDBoxHead
+    PREDICTOR: SSDBoxPredictor
+  CENTER_VARIANCE: 0.1
+  DEVICE: cuda
+  META_ARCHITECTURE: SSDDetector
+  NEG_POS_RATIO: 3
+  NUM_CLASSES: 2
+  PRIORS:
+    ASPECT_RATIOS: [[2], [2, 3], [2, 3], [2, 3], [2], [2]]
+    BOXES_PER_LOCATION: [4, 6, 6, 6, 4, 4]
+    CLIP: True
+    FEATURE_MAPS: [38, 19, 10, 5, 3, 1]
+    MAX_SIZES: [60, 111, 162, 213, 264, 315]
+    MIN_SIZES: [30, 60, 111, 162, 213, 264]
+    STRIDES: [8, 16, 32, 64, 100, 300]
+  SIZE_VARIANCE: 0.2
+  THRESHOLD: 0.5
+OUTPUT_DIR: outputs/vgg_ssd300_Custom
+SOLVER:
+  BATCH_SIZE: 32
+  GAMMA: 0.1
+  LR: 0.001
+  LR_STEPS: [80000, 100000]
+  MAX_ITER: 120000
+  MOMENTUM: 0.9
+  WARMUP_FACTOR: 0.3333333333333333
+  WARMUP_ITERS: 500
+  WEIGHT_DECAY: 0.0005
+TEST:
+  BATCH_SIZE: 10
+  CONFIDENCE_THRESHOLD: 0.01
+  MAX_PER_CLASS: -1
+  MAX_PER_IMAGE: 100
+  NMS_THRESHOLD: 0.45
+2019-11-11 18:35:39,094 SSD.trainer INFO: No checkpoint found.
+2019-11-11 18:35:39,109 SSD.trainer INFO: Start training ...
+2019-11-11 19:12:22,672 SSD INFO: Using 1 GPUs
+2019-11-11 19:12:22,672 SSD INFO: Namespace(config_file='configs/vgg_ssd300_custom.yaml', distributed=False, eval_step=2500, local_rank=0, log_step=10, num_gpus=1, opts=[], save_step=2500, skip_test=False, use_tensorboard=True)
+2019-11-11 19:12:22,672 SSD INFO: Loaded configuration file configs/vgg_ssd300_custom.yaml
+2019-11-11 19:12:22,672 SSD INFO: 
+MODEL:
+  NUM_CLASSES: 2
+INPUT:
+  IMAGE_SIZE: 300
+DATASETS:
+  TRAIN: ("custom",)
+  TEST: ("custom",)
+SOLVER:
+  MAX_ITER: 120000
+  LR_STEPS: [80000, 100000]
+  GAMMA: 0.1
+  BATCH_SIZE: 32
+  LR: 1e-3
+
+OUTPUT_DIR: 'outputs/vgg_ssd300_Custom'
+2019-11-11 19:12:22,672 SSD INFO: Running with config:
+DATASETS:
+  TEST: ('custom',)
+  TRAIN: ('custom',)
+DATA_LOADER:
+  NUM_WORKERS: 8
+  PIN_MEMORY: True
+INPUT:
+  IMAGE_SIZE: 300
+  PIXEL_MEAN: [123, 117, 104]
+MODEL:
+  BACKBONE:
+    NAME: vgg
+    OUT_CHANNELS: (512, 1024, 512, 256, 256, 256)
+    PRETRAINED: True
+  BOX_HEAD:
+    NAME: SSDBoxHead
+    PREDICTOR: SSDBoxPredictor
+  CENTER_VARIANCE: 0.1
+  DEVICE: cuda
+  META_ARCHITECTURE: SSDDetector
+  NEG_POS_RATIO: 3
+  NUM_CLASSES: 2
+  PRIORS:
+    ASPECT_RATIOS: [[2], [2, 3], [2, 3], [2, 3], [2], [2]]
+    BOXES_PER_LOCATION: [4, 6, 6, 6, 4, 4]
+    CLIP: True
+    FEATURE_MAPS: [38, 19, 10, 5, 3, 1]
+    MAX_SIZES: [60, 111, 162, 213, 264, 315]
+    MIN_SIZES: [30, 60, 111, 162, 213, 264]
+    STRIDES: [8, 16, 32, 64, 100, 300]
+  SIZE_VARIANCE: 0.2
+  THRESHOLD: 0.5
+OUTPUT_DIR: outputs/vgg_ssd300_Custom
+SOLVER:
+  BATCH_SIZE: 32
+  GAMMA: 0.1
+  LR: 0.001
+  LR_STEPS: [80000, 100000]
+  MAX_ITER: 120000
+  MOMENTUM: 0.9
+  WARMUP_FACTOR: 0.3333333333333333
+  WARMUP_ITERS: 500
+  WEIGHT_DECAY: 0.0005
+TEST:
+  BATCH_SIZE: 10
+  CONFIDENCE_THRESHOLD: 0.01
+  MAX_PER_CLASS: -1
+  MAX_PER_IMAGE: 100
+  NMS_THRESHOLD: 0.45
+2019-11-11 19:12:23,072 SSD.trainer INFO: No checkpoint found.
+2019-11-11 19:12:23,091 SSD.trainer INFO: Start training ...
+2019-11-11 19:14:16,069 SSD.trainer INFO: iteration:1 loss=nan
+2019-11-11 19:15:46,996 SSD.trainer INFO: iteration:2 loss=nan
+2019-11-11 19:17:20,396 SSD.trainer INFO: iteration:3 loss=nan
+2019-11-11 19:18:53,006 SSD.trainer INFO: iteration:4 loss=nan
+2019-11-11 19:20:27,376 SSD.trainer INFO: iteration:5 loss=nan
+2019-11-11 19:22:04,173 SSD.trainer INFO: iteration:6 loss=nan
+2019-11-11 19:23:35,898 SSD.trainer INFO: iteration:7 loss=nan
+2019-11-11 19:25:06,984 SSD.trainer INFO: iteration:8 loss=nan
+2019-11-11 19:26:37,598 SSD.trainer INFO: iteration:9 loss=nan
+2019-11-11 19:28:09,459 SSD.trainer INFO: iteration:10 loss=nan
