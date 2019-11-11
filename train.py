@@ -21,8 +21,7 @@ from ssd.utils.misc import str2bool
 def train(cfg, args):
     logger = logging.getLogger('SSD.trainer')
     model = build_detection_model(cfg)
-    # device = torch.device(cfg.MODEL.DEVICE)
-    device = torch.device("cpu")
+    device = torch.device(cfg.MODEL.DEVICE)
     model.to(device)
     if args.distributed:
         model = torch.nn.parallel.DistributedDataParallel(model, device_ids=[args.local_rank], output_device=args.local_rank)
